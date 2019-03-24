@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+  .container
+    br
+    .jumbotron
+      h1.display-4 Send Message
+      br
+      input#name.form-control(placeholder='Name')
+      br
+      textarea#message.form-control(placeholder='Your message here')
+      br
+      button#send.btn.btn-success Send
+    div
+      ul#messages
+  script(src='/javascripts/chat.js')

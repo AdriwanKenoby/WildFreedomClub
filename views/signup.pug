@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  section
+    .container
+      .row.justify-content-center
+        form.col-12.col-md-8.col-lg-8.col-xl-6(action='/register' method='post')
+          fieldset
+            legend Sign-Up
+            .row.align-items-center.mt-4
+              .col
+                input.form-control(type='text' name='username' placeholder='Username' required)
+            .row.align-items-center.mt-4
+              .col
+                input.form-control(type='email' name='email' placeholder='Email' required)
+            .row.align-items-center.mt-4
+              .col
+                input.form-control(type='password' name='password' placeholder='Password' required)
+              .col
+                input.form-control(type='password' name='confirm' placeholder='Confirm Password' required)
+            .row.justify-content-start.mt-4
+              .col
+                input.btn.btn-primary.mt-4(type='submit')
