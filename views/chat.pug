@@ -1,17 +1,32 @@
 extends layout
 
+block append head
+  link(rel='stylesheet' src='/stylesheets/chat.css')
+   
 block content
-
-  .container
-    br
-    .jumbotron
-      h1.display-4 Send Message
-      br
-      input#name.form-control(placeholder='Name')
-      br
-      textarea#message.form-control(placeholder='Your message here')
-      br
-      button#send.btn.btn-success Send
-    div
-      ul#messages
-  script(src='/javascripts/chat.js')
+  include ./header.pug
+  include ./navbar
+  section
+    .card.rare-wind-gradient.chat-room
+      .card-body
+        .row.px-lg-2.px-2
+          .col-md-6.col-xl-4.px-0
+            h6.font-weight-bold.mb-3.text-center.text-lg-left Member
+            .white.z-depth-1.px-2.pt-3.pb-0.members-panel-1.scrollbar-light-blue
+              ul#chat.list-unstyled.friend-list
+                li.p-2
+                  a.d-flex.justify-content-between(href='#')
+                    img.avatar.rounded-circle.d-flex.align-self-center.mr-2.z-depth-1(src='https://mdbootstrap.com/img/Photos/Avatars/img(2).jpg.jpg' alt='avatar')
+                    .text-small
+                      strong Marta Wozniak
+                      p.last-message.text-muted Lorem ipsum dolor sit.
+                    .chat-footer
+                      p.text-smaller.text-muted.mb-0 Yesterday
+                      span.text-muted.float-right
+                        i.fas.fa-mail-reply(aria-hidden='true')
+              .white
+                form.form-group.basic-textarea(action='')
+                  input#message.form-control.pl-2.my-0(rows='3' placeholder='Type your message here...')
+                  input.btn.btn-outline-pink.btn-rounded.btn-sm.waves-effect.waves-dark.float-right(type='submit')
+  script(type='text/javascript' src='/javascripts/chat.js')
+  include ./footer.pug

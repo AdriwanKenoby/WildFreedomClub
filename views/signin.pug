@@ -1,6 +1,8 @@
 extends layout
 
 block content
+  include ./header
+  include ./navbar
   section
     .container.pt-3
       .row.justify-content-sm-center
@@ -19,3 +21,4 @@ block content
                     | Remember me
                     input(type='checkbox' value='remember-me')                    
           a.float-right(href='/register') Create an account 
+  include ./footer

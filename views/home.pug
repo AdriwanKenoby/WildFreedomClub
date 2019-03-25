@@ -1,9 +1,39 @@
 extends layout
 
 block content
-  h1= title
-  if user
-    p Welcome #{user.username}
-    a(href='/logout') Logout
-  else
-    p Welcome
+  include ./header.pug
+  include ./navbar.pug
+  .container.text-white(style='margin-top:30px')
+    .row
+      .col-sm-4
+        h2 About Me
+        h5 Photo of me:
+        .fakeimg Fake Image
+        p Some text about me in culpa qui officia deserunt mollit anim..
+        h3 Some Links
+        p Lorem ipsum dolor sit ame.
+        ul.nav.nav-pills.flex-column
+          li.nav-item
+            a.nav-link.active(href='#') Active
+          li.nav-item
+            a.nav-link(href='#') Link
+          li.nav-item
+            a.nav-link(href='#') Link
+          li.nav-item
+            a.nav-link.disabled(href='#') Disabled
+        hr.d-sm-none
+      .col-sm-8
+        h2 TITLE HEADING
+        h5 Title description, Dec 7, 2017
+        .fakeimg Fake Image
+        p Some text..
+        p
+          | Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+        br
+        h2 TITLE HEADING
+        h5 Title description, Sep 2, 2017
+        .fakeimg Fake Image
+        p Some text..
+        p
+          | Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+  include ./footer.pug

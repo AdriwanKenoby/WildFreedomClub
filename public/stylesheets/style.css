@@ -1,8 +1,16 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url("../images/background.png");
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
 }
 
 a {
   color: #00B7FF;
+}
+
+.fakeimg {
+  height: 200px;
+  background: #aaa;
 }
