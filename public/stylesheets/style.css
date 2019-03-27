@@ -1,9 +1,13 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+header {
   background-image: url("../images/background.png");
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover;
+  background-repeat: repeat; /* Do not repeat the image */
+  background-size: contain;
+  color: lightgray;
 }
 
 a {

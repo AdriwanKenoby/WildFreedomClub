@@ -36,7 +36,7 @@ app.use(session({
   name: 'session',
   keys: [ 'user' ],
   cookie: {
-    secure: true,
+    // secure: true,
     expires: new Date( Date.now() + 60 * 60 * 1000 ), // 1 hour
     httpOnly: true
   }

@@ -1,3 +1,6 @@
 header.jumbotron.text-center(style='margin-bottom:0')
   h1 My First Bootstrap 4 Page
-  p Resize this responsive page to see the effect!
+  if username
+    p Connected as #{username}
+  else
+    p Resize this responsive page to see the effect!

@@ -1,7 +1,7 @@
 extends layout
 
 block append head
-  link(rel='stylesheet' src='/stylesheets/chat.css')
+  link(rel='stylesheet' href='/stylesheets/chat.css')
    
 block content
   include ./header.pug
@@ -11,22 +11,36 @@ block content
       .card-body
         .row.px-lg-2.px-2
           .col-md-6.col-xl-4.px-0
-            h6.font-weight-bold.mb-3.text-center.text-lg-left Member
+            h6.font-weight-bold.mb-3.text-center.text-lg-left Members
             .white.z-depth-1.px-2.pt-3.pb-0.members-panel-1.scrollbar-light-blue
-              ul#chat.list-unstyled.friend-list
-                li.p-2
-                  a.d-flex.justify-content-between(href='#')
-                    img.avatar.rounded-circle.d-flex.align-self-center.mr-2.z-depth-1(src='https://mdbootstrap.com/img/Photos/Avatars/img(2).jpg.jpg' alt='avatar')
-                    .text-small
-                      strong Marta Wozniak
-                      p.last-message.text-muted Lorem ipsum dolor sit.
-                    .chat-footer
-                      p.text-smaller.text-muted.mb-0 Yesterday
-                      span.text-muted.float-right
-                        i.fas.fa-mail-reply(aria-hidden='true')
+              ul#members-list.list-unstyled.friend-list
+                template#member-template  
+                  li.p-2
+                    a.d-flex.justify-content-between(href='#')
+                      .text-small
+                        strong                        
+                      .chat-footer
+                        p.text-smaller.text-muted.mb-0
+                        span.text-muted.float-right
+                          i.fas.fa-mail-reply(aria-hidden='true')
+          .col-md-6.col-xl-8.pl-md-3.px-lg-auto.px-0
+            h6.font-weight-bold.mb-3.text-center.text-lg-left Messages
+            .chat-message
+              ul#chat-messages.list-unstyled.chat-1.scrollbar-light-blue                
+                template#message-template
+                  li.d-flex.justify-content-between.mb-4                  
+                    .chat-body.white.p-3.ml-2.z-depth-1
+                      .header
+                        strong.primary-font
+                        small.pull-right.text-muted
+                          i.far.fa-clock
+                      hr.w-100
+                      p.mb-0
               .white
                 form.form-group.basic-textarea(action='')
-                  input#message.form-control.pl-2.my-0(rows='3' placeholder='Type your message here...')
-                  input.btn.btn-outline-pink.btn-rounded.btn-sm.waves-effect.waves-dark.float-right(type='submit')
+                  input#message.form-control.pl-2.my-0(type='text' rows='3' autocomplete='off' placeholder='Type your message here...')
+                  button.btn.btn-outline-pink.btn-rounded.btn-sm.waves-effect.waves-dark.float-right(type='button') Send
+  script.
+    var username = '#{username}'; 
   script(type='text/javascript' src='/javascripts/chat.js')
   include ./footer.pug
