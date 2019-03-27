@@ -1,10 +1,10 @@
 $(function () {
-	var socket = io();
-	var chat = io.connect('http://localhost:3000/chat');
+	let socket = io();
+	let chat = io.connect('http://localhost:3000/chat');
 
 	$('form').submit(function(e){
 		e.preventDefault();
-		var msg = {
+		let msg = {
 			username:  username,
 			texte: $('#message').val()
 		}
@@ -14,12 +14,8 @@ $(function () {
 	});
 
 	chat.on('connect', () => {
-		chat.emit('chat:userConnect', username);
-	});
-
-	chat.on('chat:userConnected', (username) => {
-		var template = $('#member-template').html();
-		var member = $(template);
+		let template = $('#member-template').html();
+		let member = $(template);
 
 		member.find('strong').text(username);
 		member.find('p').text(new Date().toISOString());
@@ -29,14 +25,16 @@ $(function () {
 
 	chat.on('chat:receivedMessage', function(msg){
 
-		var template = $('#message-template').html();
-		var message = $(template);
+		let template = $('#message-template').html();
+		let message = $(template);
 
 		message.find('strong').text(msg.username);
 		message.find('i').text(new Date().toISOString());
 		message.find('p').text(msg.texte);
 
-		$('#chat-messages').append(message);
+		let messages = $('#chat-messages');
 
+		messages.append(message);
+		messages.scrollTop(messages[0].scrollHeight);
 	});
 });

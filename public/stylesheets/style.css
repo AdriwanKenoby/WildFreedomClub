@@ -1,13 +1,13 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
 }
 
 header {
   background-image: url("../images/background.png");
-  background-repeat: repeat; /* Do not repeat the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
   background-size: contain;
-  color: lightgray;
 }
 
 a {
